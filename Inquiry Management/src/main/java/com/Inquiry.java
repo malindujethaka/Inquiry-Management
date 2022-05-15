@@ -15,7 +15,7 @@ public class Inquiry {
 		String output="";
 		try {
 			output = "<table border=\"1\" class=\"table\"> <tr>"
-					+ "<th>Customer ID</th> <th>Customer Name</th>"
+					+ "<th>Inquiry ID</th><th>Customer ID</th> <th>Customer Name</th>"
 			 		+ "<th>Customer NIC</th>"
 			 		+ "<th>Contact No</th>"
 			 		+ "<th>Inquiry Type</th>"
@@ -38,7 +38,8 @@ public class Inquiry {
 				 
 				// Add into the html table
 				 	
-					output += "<tr><td><input id='hidInquiryIDUpdate' name='hidInquiryIDUpdate' type='hidden value='" + inquiryId +"' >"+customerId+ "</td>";
+					output += "<tr><td>"+inquiryId+ "</td>";
+					output += "<td>" + customerId + "</td>";
 					output += "<td>" + customerName + "</td>";
 					output += "<td>" + customerNIC + "</td>";
 					output += "<td>" + contactNo + "</td>";
@@ -46,7 +47,7 @@ public class Inquiry {
 					output += "<td>" + inquiryDate + "</td>";
 					output += "<td>" +  description + "</td>";
 					 output += "<td><input name='btnUpdate' type='button' value='Update' "
-							 + "class='btnUpdate btn btn-secondary' data-inquiryId='" + inquiryId + "'></td>"
+							 + "class='btnUpdate btn btn-success' data-inquiryId='" + inquiryId + "'></td>"
 							 + "<td><input name='btnRemove' type='button' value='Remove' "
 							 + "class='btnRemove btn btn-danger' data-inquiryId='" + inquiryId + "'></td></tr>"; 
 			
@@ -157,6 +158,7 @@ public class Inquiry {
 
 
 	}
+
 
 
 

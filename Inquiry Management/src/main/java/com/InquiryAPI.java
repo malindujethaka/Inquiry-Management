@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class InquiryAPI
- */
+
 @WebServlet("/InquiryAPI")
 public class InquiryAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,6 +20,7 @@ public class InquiryAPI extends HttpServlet {
 
   
     public InquiryAPI() {
+    	super();
      
     }
 
@@ -52,18 +51,28 @@ public class InquiryAPI extends HttpServlet {
 		
 		Map paras = getParasMap(request);
 		
-//			String output = inquiryObj.updateInquiry(
-//					paras.get("hidCustomerIDSave").toString(),
-//					paras.get("customerId").toString(),
-//					paras.get("customerName").toString(), 
-//					paras.get("customerNIC").toString(), 
-//					paras.get("contactNo").toString(),
-//					paras.get("inquiryType").toString(), 
-//					paras.get("inquiryDate").toString(), 
-//					paras.get("description").toString());
-//			response.getWriter().write(output);
+			String output = inquiryObj.updateInquiry(paras.get("hidInquiryIDSave").toString(),
+						paras.get("customerId").toString(),
+						paras.get("customerName").toString(), 
+						paras.get("customerNIC").toString(), 
+						paras.get("contactNo").toString(),
+						paras.get("inquiryType").toString(), 
+						paras.get("inquiryDate").toString(), 
+						paras.get("description").toString());
+						response.getWriter().write(output);
+			
+			
 	}
 
+	
+
+	
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Map paras = getParasMap(request); 
+		String output =inquiryObj.deleteInquiry(paras.get("inquiryId").toString());
+		response.getWriter().write(output);
+	}
+	
 	private static Map getParasMap(HttpServletRequest request) 
 	{ 
 		Map<String, String> map = new HashMap<String, String>(); 
@@ -85,12 +94,5 @@ public class InquiryAPI extends HttpServlet {
 		return map; 
 	}
 
-
-	
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Map paras = getParasMap(request); 
-		String output =inquiryObj.deleteInquiry(paras.get("inquiryId").toString());
-		response.getWriter().write(output);
-	}
 
 }
