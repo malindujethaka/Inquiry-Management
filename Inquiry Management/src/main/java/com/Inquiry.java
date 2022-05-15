@@ -104,7 +104,7 @@ public class Inquiry {
 	
 	//Update Inquiry 
 	public String updateInquiry(String inquiryId,String customerId, String customerName, String customerNIC, String contactNo,
-			String inquiryType, String inquiryDate, String description) throws ClassNotFoundException, SQLException {
+			String inquiryType, String inquiryDate, String description) {
 		
 		String output = ""; 
 		try {
@@ -154,7 +154,10 @@ public class Inquiry {
 			System.err.println(e.getMessage());
 		}
 		return output;
-}
+
+
+	}
+
 
 
 }
