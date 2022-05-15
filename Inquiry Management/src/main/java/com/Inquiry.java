@@ -75,7 +75,7 @@ public class Inquiry {
 		String output = ""; 
 		try {
 			Connection con=DatabaseConnection.getConnection();
-			String query="insert into  inquiry values(?,?,?,?,?,?,?) ";
+			String query="insert into  inquiry(`CustomerID`,`CustomerName`,`CustomerNIC`,`ContactNo`,`Inquirytype`,`InquiryDate`,`Description`) "+" values(?,?,?,?,?,?,?) ";
 			PreparedStatement preparedstatement=con.prepareStatement(query);
 			
 		
@@ -96,7 +96,7 @@ public class Inquiry {
 		
 		}catch(Exception e) 
 		{
-			output = "Error while reading the inquiry.";
+			output = "{\"status\":\"error\", \"data\":\"Error while inserting the Inquiry information.\"}"; 
 			System.err.println(e.getMessage());
 		}
 		return output;
@@ -110,7 +110,7 @@ public class Inquiry {
 		try {
 			Connection con=DatabaseConnection.getConnection();
 			
-			String query="update inquiry set customerId=?,customerName=?,customerNIC=?,contactNo=?,inquirytype=?,inquiryDate=?,description=?  where inquiryId=? ";
+			String query="update inquiry set CustomerID=?,CustomerName=?,CustomerNIC=?,ContactNo=?,Inquirytype=?,InquiryDate=?,Description=?  where InquiryID=? ";
 			PreparedStatement preparedstatement=con.prepareStatement(query);
 			
 			preparedstatement.setString(1, customerId);
@@ -130,7 +130,7 @@ public class Inquiry {
 		
 		}catch(Exception e) 
 		{
-			output = "Error while updating the inquiry.";
+			output = "{\"status\":\"error\",\"data\":\"Error while updating the Inquiry information.\"}"; 
 			System.err.println(e.getMessage());
 		}
 		return output;
