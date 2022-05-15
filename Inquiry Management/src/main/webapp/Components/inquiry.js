@@ -1,5 +1,6 @@
 $(document).on("click", "#btnSave", function(event)
 { 
+	alert("malith");
 // Clear alerts---------------------
 	 $("#alertSuccess").text(""); 
 	 $("#alertSuccess").hide(); 
@@ -118,7 +119,7 @@ function validateInquiryForm()
 	// customerId
 	if ($("#customerId").val().trim() == "")
 	{
-	return "Insert Customer Name.";
+	return "Insert Customer Id.";
 	}
 	// customerName
 	if ($("#customerName").val().trim() == "")
@@ -134,7 +135,7 @@ function validateInquiryForm()
 	// contactNo
 	if ($("#contactNo").val().trim() == "")
 	{
-	return "Insert Email.";
+	return "Insert Contact NO.";
 	}
 	// inquiryType
 	if ($("#inquiryType").val().trim() == "")
@@ -153,5 +154,5 @@ function validateInquiryForm()
 	return "Insert Description.";
 	
     }
-	
+	return true;
 }
