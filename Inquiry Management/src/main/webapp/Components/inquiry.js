@@ -113,7 +113,7 @@ function onInquiryDeleteComplete(response, status)
 			 $("#alertError").show(); 
 	 } 
 }
-// CLIENT-MODEL================================================================
+// Inquiry-MODEL================================================================
 function validateInquiryForm()
 {
 	// customerId
